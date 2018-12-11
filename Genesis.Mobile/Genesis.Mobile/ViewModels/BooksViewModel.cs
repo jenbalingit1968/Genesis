@@ -18,7 +18,7 @@ namespace Genesis.Mobile.ViewModels
 
         public BooksViewModel()
         {
-            Title = "Books";
+            Title = "Bibles";
             BooksItem = new ObservableCollection<Model::BooksModel>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
             GetBooks();

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-               Title="{Binding Title}"
+             Title="{Binding Title}"
              BackgroundColor="White"
              x:Class="Genesis.Mobile.Views.Books">
 
@@ -42,19 +42,35 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
+                        <StackLayout Orientation="Horizontal" >
+                            <StackLayout VerticalOptions="CenterAndExpand" Margin="5,0,-10,0">
+                                <Image VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Source="ic_bible_1" HeightRequest="50" WidthRequest="50"/>
 
-                                <StackLayout Padding="10" VerticalOptions="FillAndExpand">
-                                    <Label Text="{Binding Name}" 
-                                LineBreakMode="NoWrap" 
+
+                            </StackLayout>
+
+                            <StackLayout Padding="10" VerticalOptions="FillAndExpand">
+
+                                <Label Text="{Binding Name}" 
+                                            FontAttributes="Bold"
+                                LineBreakMode="TailTruncation" 
                                 Style="{DynamicResource ListItemTextStyle}" 
                                 FontSize="16" />
-                                    <Label Text="{Binding Description}" 
+                                <Label Text="{Binding Description, StringFormat='Description: {0}'}" 
+                                LineBreakMode="WordWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" />
+
+
+                                <Label Text="{Binding Language.Name, StringFormat='Language: {0}'}" 
                                 LineBreakMode="NoWrap"
                                 Style="{DynamicResource ListItemDetailTextStyle}"
                                 FontSize="13" />
-                                </StackLayout>
+                            </StackLayout>
 
-                         
+
+                        </StackLayout>
+                     
 
 
 
