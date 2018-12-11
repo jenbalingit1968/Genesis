@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               Title="{Binding Title}"
+             BackgroundColor="White"
+             x:Class="Genesis.Mobile.Views.Books">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Settings" Clicked="AddItem_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android" Value="ic_three_dots.png"/>
+                  
+                </OnPlatform>
+                
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+        <!--<ToolbarItem Text="Search" Clicked="AddItem_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android" Value="ic_search.png"/>
+
+                </OnPlatform>
+
+            </ToolbarItem.Icon>
+        </ToolbarItem>-->
+
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+
+
+    
+            <ListView x:Name="ItemsListView"
+                       HorizontalOptions="FillAndExpand"
+                ItemsSource="{Binding BooksItem}"
+                VerticalOptions="FillAndExpand"
+                HasUnevenRows="true"
+                RefreshCommand="{Binding LoadItemsCommand}"
+                IsPullToRefreshEnabled="true"
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                CachingStrategy="RecycleElement">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+                                <StackLayout Padding="10" VerticalOptions="FillAndExpand">
+                                    <Label Text="{Binding Name}" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" />
+                                    <Label Text="{Binding Description}" 
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" />
+                                </StackLayout>
+
+                         
+
+
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+    
+
+
+    </ContentPage.Content>
+</ContentPage>
