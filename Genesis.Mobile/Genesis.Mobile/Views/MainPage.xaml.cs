@@ -36,6 +36,8 @@ namespace Genesis.Mobile.Views
                     case (int)MenuItemType.Books:
                         MenuPages.Add(id, new NavigationPage(new Books()));
                         break;
+
+                 
                 }
             }
 

@@ -15,7 +15,7 @@ namespace Genesis.Mobile.Services
         public Books()
         {
             apiService = new Api.Books();
-            Init();
+          
         }
 
         List<Model::BooksModel> items;
@@ -57,9 +57,5 @@ namespace Genesis.Mobile.Services
 
         }
 
-        private async void Init()
-        {
-            await GetItemsAsync();
-        }
     }
 }

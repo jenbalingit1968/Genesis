@@ -1,4 +1,5 @@
-﻿using Genesis.Mobile.ViewModels;
+﻿using Genesis.Mobile.Models;
+using Genesis.Mobile.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,8 @@ namespace Genesis.Mobile.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class Books : ContentPage
 	{
+
+        MainPage RootPage { get => Application.Current.MainPage as MainPage; }
         BooksViewModel viewModel;
         public Books ()
 		{
@@ -23,6 +26,20 @@ namespace Genesis.Mobile.Views
         async void AddItem_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Views.MenuPage());
+        }
+
+         void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            var item = args.SelectedItem as Genesis.Core.Model.BooksModel;
+            if (item == null)
+                return;
+
+            //await Navigation.PushAsync(new Views.BookContent(item));
+
+             RootPage.Detail =  new NavigationPage(new Views.BookContent(item));
+
+            // Manually deselect item.
+            ItemsListView.SelectedItem = null;
         }
     }
 }

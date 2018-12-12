@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="{Binding Title}"
+             x:Class="Genesis.Mobile.Views.BookContent">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="ItemsListView"
+                       HorizontalOptions="FillAndExpand"
+                      ItemSelected="OnItemSelected"
+                ItemsSource="{Binding BookContentItem}"
+                VerticalOptions="FillAndExpand"
+                HasUnevenRows="true"
+                RefreshCommand="{Binding LoadItemsCommand}"
+                IsPullToRefreshEnabled="true"
+               
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                CachingStrategy="RecycleElement">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" >
+                                <StackLayout VerticalOptions="CenterAndExpand" Margin="5,0,-10,0">
+                                    <Image VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Source="ic_book_3" HeightRequest="50" WidthRequest="50"/>
+
+
+                                </StackLayout>
+
+                                <StackLayout Padding="10" VerticalOptions="FillAndExpand">
+
+                                    <Label Text="{Binding name}" 
+                                            FontAttributes="Bold"
+                                LineBreakMode="TailTruncation" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" />
+                                   
+                                    <Label Text="{Binding nameLong }" 
+                                LineBreakMode="WordWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" />
+
+
+                                    <!--<Label Text="{Binding abbreviation, StringFormat='Abbreviation: {0}'}" 
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" />-->
+                                </StackLayout>
+
+
+                            </StackLayout>
+
+
+
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

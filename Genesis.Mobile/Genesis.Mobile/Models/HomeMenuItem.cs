@@ -9,7 +9,9 @@ namespace Genesis.Mobile.Models
         Home,
         Books,
         Browse,
-        About
+        About,
+        BookContent,
+        BookChapter
     }
     public class HomeMenuItem
     {

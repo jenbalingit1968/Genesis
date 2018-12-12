@@ -37,6 +37,7 @@
                 HasUnevenRows="true"
                 RefreshCommand="{Binding LoadItemsCommand}"
                 IsPullToRefreshEnabled="true"
+                ItemSelected="OnItemSelected"
                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                 CachingStrategy="RecycleElement">
                 <ListView.ItemTemplate>

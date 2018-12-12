@@ -45,8 +45,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\Books.cs" />
+    <Compile Include="Api\BookContent.cs" />
     <Compile Include="Logic\Books.cs" />
+    <Compile Include="Model\BookContentModel.cs" />
     <Compile Include="Model\BooksModel.cs" />
+    <Compile Include="Model\ChapterModel.cs" />
     <Compile Include="Model\Countries.cs" />
     <Compile Include="Model\Language.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

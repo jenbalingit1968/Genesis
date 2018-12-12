@@ -17,6 +17,8 @@ namespace Genesis.Mobile.ViewModels
 
         public IDataStore<Model::BooksModel> BooksStore => DependencyService.Get<IDataStore<Model::BooksModel>>() ?? new Books();
 
+        public Interface.Services.IBookContent<Model::BookContentModel> BookContentStore => DependencyService.Get<Interface.Services.IBookContent<Model::BookContentModel>>() ?? new BookContent();
+
         bool isBusy = false;
         public bool IsBusy
         {
